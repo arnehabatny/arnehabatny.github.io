@@ -7,42 +7,91 @@
     <title>Neha Batny's Projects</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             line-height: 1.6;
-            margin: 20px;
+            margin: 0;
             padding: 0;
-            background-color: #f5f5f5;
+            background: url('https://source.unsplash.com/random/1600x900') no-repeat center center fixed;
+            background-size: cover;
             color: #333;
         }
 
         .container {
-            max-width: 800px;
-            margin: auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 1000px;
+            margin: 60px auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
         }
 
         h1 {
+            color: #333;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+
+        .cards-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            color: white;
+            font-size: 18px;
             text-align: center;
-            color: #555;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h2 {
+            margin: 0;
+            font-size: 24px;
+            margin-bottom: 10px;
         }
 
         ul {
             list-style-type: none;
             padding: 0;
+            display: none;
+            margin-top: 20px;
         }
 
         li {
             margin-bottom: 10px;
-            padding: 10px;
-            background-color: #f9f9f9;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.95);
             border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        li:not(:last-child) {
+            margin-bottom: 20px;
         }
 
         li:hover {
-            background-color: #e9ecef;
+            background-color: rgba(240, 240, 240, 0.95);
+            transform: translateY(-5px);
         }
 
         a {
@@ -55,17 +104,51 @@
             text-decoration: underline;
         }
 
+        .back-button {
+            display: none;
+            margin-bottom: 20px;
+            cursor: pointer;
+            color: #007bff;
+            text-decoration: none;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        @media (max-width: 900px) {
+            .cards-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                width: 80%;
+                margin-bottom: 20px;
+            }
+        }
+
         @media (max-width: 600px) {
             .container {
-                padding: 10px;
+                padding: 20px;
             }
 
             h1 {
-                font-size: 24px;
+                font-size: 28px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            .card h2 {
+                font-size: 20px;
             }
 
             li {
-                padding: 8px;
+                padding: 10px;
                 font-size: 14px;
             }
         }
@@ -76,31 +159,83 @@
     <div class="container">
         <h1>Welcome to Neha Batny's Projects!</h1>
         <p>Explore below to find links to Neha's recent projects:</p>
-        <ul>
-            <li><a href="https://drive.google.com/drive/folders/1xenz6MbBtMJbEkhbQ8bikz4Bh7b1XYoZ?usp=drive_link">Mysore
-                    Mane</a></li>
-            <li><a href="https://drive.google.com/drive/folders/1B3AyS_61j7_p8LLuwg1KKBpnkmVDO0nF?usp=drive_link">Godrej
-                    Woodsmen Office</a></li>
-            <li><a href="https://drive.google.com/drive/folders/1gFOGRXfqH7qTQqzLErbDe8TZKHFXlA9_?usp=drive_link">Bharat
-                    BioTech Malur</a></li>
-            <li><a href="https://drive.google.com/drive/folders/1M-59uqt--qtaT5RXEo-lRIbMomA7Pg5j?usp=drive_link">R's
-                    Interiors</a></li>
-            <li><a href="https://drive.google.com/drive/folders/1mU_Mqu2SLhf3T3qyASd8Wqg5NXeVkhLG?usp=drive_link">Jindal
-                    City</a></li>
-            <li><a href="https://drive.google.com/drive/folders/1EiBOTHPtzNtzqdBTwYwQalIYKeBFs-tZ?usp=drive_link">A103
-                    Interiors</a></li>
-            <li><a href="https://drive.google.com/drive/folders/1lNU7ZsynB06IzkrpAYzmPUrP2jLn7ar9?usp=drive_link">Uttarhalli
-                    Residence</a></li>
-            <li><a href="https://drive.google.com/drive/folders/1UPaKfQ1zXbdnF3aWhdnlu91Ch0r_evhg?usp=drive_link">SV
-                    Residence</a></li>
-            <li><a href="https://drive.google.com/drive/folders/1z9FxZBMOjyNB64QsX6CpKv4GwTPTrp0P?usp=drive_link">R109
-                    Residence</a></li>
-            <li><a href="https://drive.google.com/drive/folders/1AApSXjw76oN4Pfro2AVlT9Z3tCZO-mw7?usp=drive_link">L's
-                    residence</a></li>
+
+        <a class="back-button" onclick="showHome()">← Back to Categories</a>
+
+        <div class="cards-container">
+            <div class="card interiors" onclick="showProjects('interiors-projects')">
+                <h2>Interiors</h2>
+            </div>
+            <div class="card exteriors" onclick="showProjects('exteriors-projects')">
+                <h2>Exteriors</h2>
+            </div>
+            <div class="card walkthroughs" onclick="showProjects('walkthroughs-projects')">
+                <h2>Walk Throughs</h2>
+            </div>
+        </div>
+
+        <ul id="interiors-projects">
+            <li><a
+                    href="https://drive.google.com/file/d/1pyvXk6d-dF8VPmUlo5Ms5_ARK8JMQxYf/view?usp=drive_link">Dressing</a>
+            </li>
+            <li><a href="https://drive.google.com/file/d/1BZhWaEiID_yL5aZ1kTpAoQag-mi7bC-9/view?usp=drive_link">Foyer +
+                    Dining View</a></li>
+            <li><a href="https://drive.google.com/file/d/1Z-uCeK7-x9ZaBkT5tzwedSufo9x88KUe/view?usp=drive_link">MBR
+                    Dresser</a></li>
+            <li><a href="https://drive.google.com/file/d/11TpzHl7MvbTy7y4NQ7ObWihU9QOCdSt3/view?usp=drive_link">Room
+                    view</a></li>
+            <li><a href="https://drive.google.com/file/d/1UFU5RKqH45dF2Q2-dT2yTEa3pX1Kd6nU/view?usp=drive_link">S&V
+                    living</a></li>
+            <li><a href="https://drive.google.com/file/d/17lUxIsPFo1uYaH331OsCy0g8KHL3H62s/view?usp=drive_link">Study
+                    with door</a></li>
         </ul>
+
+        <ul id="exteriors-projects">
+            <li><a href="https://drive.google.com/file/d/1TA9vIxpqWXFBe5TZIku100z0RNnCgaia/view?usp=drive_link">Uttarhalli
+                    Residence</a></li>
+            <li><a href="https://drive.google.com/file/d/12Yz164OdHaq-NJVN4Z9l48XdIsLIwQwm/view?usp=drive_link">Site 33
+                    Elevation</a></li>
+            <li><a href="https://drive.google.com/file/d/1eZLEyYrrG7CyNdcaDC2Nh2wK1I_qcCQC/view?usp=drive_link">C's
+                    residence</a></li>
+            <li><a href="https://drive.google.com/file/d/1gxvvKsgekdj1zFfvfJNbvLoHBbkNu-y_/view?usp=drive_link">Residence
+                    413</a></li>
+            <li><a href="https://drive.google.com/file/d/1E7l6dw6sAf1xTgItNFzFxruv-P4oNFok/view?usp=drive_link">Back
+                    Garden View</a></li>
+            <li><a href="https://drive.google.com/file/d/1s2EiCo8J-F0flJajV2UrrcIS3PqWqchf/view?usp=drive_link">Renovation
+                    413</a></li>
+        </ul>
+
+        <ul id="walkthroughs-projects">
+            <li><a href="https://drive.google.com/file/d/1qSoP-EVX1uRnKbfGVgaZ7kMy3EcYNQcZ/view?usp=drive_link">Family
+                    Area Second Floor</a></li>
+            <li><a href="https://drive.google.com/file/d/1Y78ZMGxErXyTb3luZ4ArmJkT0-bALsBJ/view?usp=drive_link">Groud
+                    Floor</a></li>
+            <li><a href="https://drive.google.com/file/d/17TpyRZRq81YWuPVL0g4gCwyWeZY6GZEi/view?usp=drive_link">Chandru's
+                    Ground Floor</a></li>
+            <li><a href="https://drive.google.com/file/d/1Jao2ORzJbV0thtOlLQHZf1OxZgFd2t7f/view?usp=drive_link">Chandru's
+                    Foyer and Kitchen</a></li>
+            <li><a href="https://drive.google.com/file/d/1mPf9KZmOyC3rSaimdFHSXU10x_aGiYNH/view?usp=drive_link">Second
+                    Floor</a></li>
+        </ul>
+
         <p>Feel free to <a href="mailto:ar.nehabatny@gmail.com">reach out to Neha</a> if you have any questions or
             feedback!</p>
     </div>
+
+    <script>
+        function showProjects(id) {
+            document.querySelectorAll('.card').forEach(card => card.style.display = 'none');
+            document.querySelector('.back-button').style.display = 'block';
+            document.querySelectorAll('ul').forEach(ul => ul.style.display = 'none');
+            document.getElementById(id).style.display = 'block';
+        }
+
+        function showHome() {
+            document.querySelectorAll('.card').forEach(card => card.style.display = 'block');
+            document.querySelector('.back-button').style.display = 'none';
+            document.querySelectorAll('ul').forEach(ul => ul.style.display = 'none');
+        }
+    </script>
 </body>
 
 </html>
