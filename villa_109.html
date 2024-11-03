@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Adya Belaku</title>
+    <!-- Bootstrap CSS -->
+    <link
+        rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <!-- Google Fonts: DM Sans -->
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap"
+    />
+    <!-- Custom Styles -->
+    <style>
+        /* Include the same styles as in your index.html */
+        body {
+            font-family: "DM Sans", sans-serif;
+            color: #96695e;
+        }
+
+        a {
+            color: #96695e;
+        }
+
+        /* Header styling */
+        header {
+            position: relative;
+            background-color: #96695e;
+            color: #ffffff;
+            z-index: 2;
+        }
+
+        .navbar {
+            background-color: transparent;
+            padding-top: 0.1rem;
+            padding-bottom: 0.1rem;
+            z-index: 2;
+        }
+
+        .navbar-dark .navbar-nav .nav-link,
+        .navbar-dark .navbar-brand {
+            color: #ffffff;
+        }
+
+        .navbar-dark .navbar-nav .nav-link.active,
+        .navbar-dark .navbar-nav .show > .nav-link {
+            color: #ffffff;
+        }
+
+        /* Wave Styles */
+        .wave-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            z-index: 1;
+        }
+
+        .wave-container svg {
+            display: block;
+            width: 100%;
+            margin-left: 130px;
+            height: 70px;
+            z-index: 1;
+        }
+
+        .wave-container svg path {
+            fill: #ffffff;
+        }
+
+        /* Gallery Styles */
+        .gallery .col-md-4 {
+            margin-bottom: 30px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 250px; /* Set a fixed height */
+            object-fit: cover; /* Ensures images fill the container without distortion */
+            border-radius: 5px;
+            transition: transform 0.2s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer Styles */
+        footer {
+            color: #96695e;
+        }
+
+        /* Button Styles */
+        .btn-custom {
+            background-color: #96695e;
+            color: #ffffff;
+            border: none;
+        }
+
+        .btn-custom:hover {
+            background-color: #754f48;
+        }
+
+        /* Contact Info Styles */
+        .contact a {
+            color: #96695e;
+            font-size: 1.2rem;
+            text-decoration: none;
+        }
+
+        .contact a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <!-- <div class="wave-container">
+            <svg viewBox="0 0 500 150" preserveAspectRatio="none">
+                <path
+                    d="M0,150 C250,0 250,0 500,150 L500,150 L0,150 Z"
+                    style="stroke: none; fill: #ffffff"
+                ></path>
+            </svg>
+        </div>  -->
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="index.html">
+                <!-- Logo -->
+                <img
+                    src="images/belaku_white_bg.png"
+                    alt="Logo"
+                    width="170"
+                    height="60"
+                    style="z-index: 100"
+                />
+            </a>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div
+                class="collapse navbar-collapse justify-content-end"
+                id="navbarNav"
+            >
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home<span class="sr-only"></span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Gallery</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="project.html">Projects</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Gallery Section -->
+    <div class="container my-5">
+        <h2 class="text-center mb-4">Villa 109</h2>
+        <p class="lead text-center">
+            Luxury home design featuring marble elements and a home theater creates an opulent atmosphere that balances sophistication and entertainment
+        </p>
+    
+        <h2 class="text-center mb-4"></h2>
+        <div class="row gallery">
+            <!-- Image 1 -->
+            <div class="col-md-4">
+                <img src="images/villa_109/bedroom.webp" alt="Project Image 1">
+            </div>
+            <!-- Image 2 -->
+            <div class="col-md-4">
+                <img src="images/villa_109/bedroom2.webp" alt="Project Image 2">
+            </div>
+            <!-- Image 3 -->
+            <div class="col-md-4">
+                <img src="images/villa_109/home_theatre.webp" alt="Project Image 3">
+            </div>
+            <!-- Image 4 -->
+            <div class="col-md-4">
+                <img src="images/villa_109/Image2.webp" alt="Project Image 4">
+            </div>
+            <!-- Image 5 -->
+            <div class="col-md-4">
+                <img src="images/villa_109/IMG-20240708-WA0004.webp" alt="Project Image 5">
+            </div>
+            <!-- Image 6 -->
+            <div class="col-md-4">
+                <img src="images/villa_109/kid_s.webp" alt="Project Image 6">
+            </div>
+            <!-- Image 7 -->
+            <div class="col-md-4">
+                <img src="images/villa_109/lift.webp" alt="Project Image 7">
+            </div>
+            <!-- Image 8 -->
+            <div class="col-md-4">
+                <img src="images/villa_109/livingg.webp" alt="Project Image 8">
+            </div>
+            <!-- Image 9 -->
+            <div class="col-md-4">
+                <img src="images/villa_109/moodboard.webp" alt="Project Image 9">
+            </div>
+            <div class="col-md-4">
+                <img src="images/villa_109/sauna.webp" alt="Project Image 9">
+            </div>
+            <div class="col-md-4">
+                <img src="images/villa_109/terrace.webp" alt="Project Image 9">
+            </div>
+            <div class="col-md-4">
+                <img src="images/villa_109/terrace2.webp" alt="Project Image 9">
+            </div>
+            <div class="col-md-4">
+                <img src="images/villa_109/toilet.webp" alt="Project Image 9">
+            </div>
+        </div>
+
+        <div class="text-center">
+            <a href="project.html" class="btn btn-custom">Back to Projects</a>
+          </div>
+          
+        <p class="text-center mt-4 contact">
+            Interested in working with us? Reach out via email:
+            <a href="mailto:ar.nehabatny@gmail.com">ar.nehabatny@gmail.com</a>
+          </p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center py-3">
+        &copy; 2024 Belaku. All rights reserved.
+    </footer>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    ></script>
+    <script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    ></script>
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Adya Belaku</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <!-- Google Fonts: DM Sans -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Custom Styles -->
+  <style>
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: #96695e;
+    }
+
+    a {
+      color: #96695e;
+    }
+
+    .navbar-light .navbar-nav .nav-link {
+      color: #96695e;
+    }
+
+    .navbar-brand {
+      color: #96695e;
+    }
+
+    .navbar {
+      background-color: transparent;
+      padding-top: 0.1rem;
+      /* Reduced padding */
+      padding-bottom: 0.1rem;
+      /* Reduced padding */
+      z-index: 2;
+    }
+
+    header {
+      position: relative;
+      background-color: #96695e;
+      color: #ffffff;
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    /* Navbar link and brand text color */
+    .navbar-dark .navbar-nav .nav-link,
+    .navbar-dark .navbar-brand {
+      color: #ffffff;
+    }
+
+    .navbar-dark .navbar-nav .nav-link.active,
+    .navbar-dark .navbar-nav .show>.nav-link {
+      color: #ffffff;
+    }
+
+    .navbar-light .navbar-nav .nav-link.active,
+    .navbar-light .navbar-nav .show>.nav-link {
+      color: #96695e;
+    }
+
+    /* Wave Styles */
+    .wave-container {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+      z-index: 1;
+    }
+
+    .wave-container svg {
+      display: block;
+      width: 100%;
+      margin-left: 130px;
+      height: 70px;
+      z-index: 1;
+    }
+
+    .wave-container svg path {
+      fill: #ffffff;
+      /* White color for the wave */
+    }
+
+    /* Set footer text color */
+    footer {
+      color: #96695e;
+    }
+
+    /* Button Styles */
+    .btn-custom {
+      background-color: #96695e;
+      color: #ffffff;
+      border: none;
+    }
+
+    .btn-custom:hover {
+      background-color: #754f48;
+      /* Slightly darker shade on hover */
+    }
+
+    /* Contact Info Styles */
+    .contact a {
+      color: #96695e;
+      font-size: 1.2rem;
+      text-decoration: none;
+    }
+
+    .contact a:hover {
+      text-decoration: underline;
+    }
+
+
+    .square {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .square:after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+      /* 1:1 aspect ratio */
+    }
+
+    .square img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .project-card {
+      transition: transform 0.3s;
+      border: none;
+    }
+
+    .project-card:hover {
+      transform: scale(1.05);
+    }
+
+    .project-card img {
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .project-card .card-body {
+      background-color: #f8f9fa;
+    }
+
+    .project-card .card-title {
+      color: #96695e;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-card .card-text {
+      color: #96695e;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <a class="navbar-brand" href="#">
+        <!-- Logo -->
+        <img src="images/belaku_white_bg.png" alt="Logo" width="170" height="60" style="z-index: 100" />
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home<span class="sr-only"></span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="gallery.html">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Projects</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- Wave SVG -->
+  </header>
+
+
+  <div class="container my-5">
+    <h2 class="text-center mb-4">Belaku Projects</h2>
+    <div class="row">
+      <!-- Project 1 -->
+      <div class="col-md-4 mb-4">
+        <div class="card project-card">
+          <a href="mysore_mane.html">
+            <img src="images/sitout.webp" class="card-img-top" alt="Project 1" />
+          </a>
+          <div class="card-body">
+            <h5 class="card-title">Mysore Mane</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Project 2 -->
+      <div class="col-md-4 mb-4">
+        <div class="card project-card">
+          <a href="sv_residence.html">
+            <img src="images/reference.webp" class="card-img-top" alt="Project 2" />
+          </a>
+          <div class="card-body">
+            <h5 class="card-title">SV Residence</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Project 3 -->
+      <div class="col-md-4 mb-4">
+        <div class="card project-card">
+          <a href="site97.html">
+            <img src="images/living_room.webp" class="card-img-top" alt="Project 3" />
+          </a>
+          <div class="card-body">
+            <h5 class="card-title">Site 97</h5>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <!-- Project 1 -->
+        <div class="col-md-4 mb-4">
+          <div class="card project-card">
+            <a href="site42.html">
+              <img src="images/mr_jext.webp" class="card-img-top" alt="Project 1" />
+            </a>
+            <div class="card-body">
+              <h5 class="card-title">Site 42</h5>
+            </div>
+          </div>
+        </div>
+        <!-- Project 2 -->
+        <div class="col-md-4 mb-4">
+          <div class="card project-card">
+            <a href="jindal.html">
+              <img src="images/dining.webp" class="card-img-top" alt="Project 2" />
+            </a>
+            <div class="card-body">
+              <h5 class="card-title">Jindal 803</h5>
+            </div>
+          </div>
+        </div>
+        <!-- Project 3 -->
+        <div class="col-md-4 mb-4">
+          <div class="card project-card">
+            <a href="villa_109.html">
+              <img src="images/terrace.webp" class="card-img-top" alt="Project 3" />
+            </a>
+            <div class="card-body">
+              <h5 class="card-title">Villa 109</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-center mt-4 contact">
+      Interested in working with us? Reach out via email:
+      <a href="mailto:ar.nehabatny@gmail.com">ar.nehabatny@gmail.com</a>
+    </p>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-light text-center py-3">
+    &copy; 2024 Belaku. All rights reserved.
+  </footer>
+
+  <!-- Bootstrap JS, Popper.js, and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
