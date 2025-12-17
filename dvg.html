@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects - Adya Belaku</title>
+    <title>DVG Project - Adya Belaku</title>
     <!-- Bootstrap CSS -->
     <link
         rel="stylesheet"
@@ -12,14 +12,14 @@
     <!-- Google Fonts: DM Sans -->
     <link
         rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
     />
     <!-- Custom Styles -->
     <style>
-        /* Include the same styles as in your index.html */
         body {
             font-family: "DM Sans", sans-serif;
             color: #96695e;
+            overflow-x: hidden;
         }
 
         a {
@@ -51,49 +51,232 @@
             color: #ffffff;
         }
 
-        /* Wave Styles */
-        .wave-container {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            overflow: hidden;
-            line-height: 0;
-            z-index: 1;
+        /* Hero Section */
+        .project-hero {
+            position: relative;
+            height: 48vh;
+            min-height: 400px;
+            /* background: linear-gradient(135deg, #96695e 0%, #754f48 100%); */
+            background-image: url('images/dvg_project/DavangereHouse1.jpg');
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 60px;
         }
 
-        .wave-container svg {
-            display: block;
-            width: 100%;
-            margin-left: 130px;
-            height: 70px;
-            z-index: 1;
+        .project-hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 20px;
         }
 
-        .wave-container svg path {
-            fill: #ffffff;
+        .project-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
-        /* Gallery Styles */
-        .gallery .col-md-4 {
-            margin-bottom: 30px;
+        .project-hero .subtitle {
+            font-size: 1.3rem;
+            font-weight: 400;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
 
-        .gallery img {
-            width: 100%;
-            height: 250px; /* Set a fixed height */
-            object-fit: cover; /* Ensures images fill the container without distortion */
-            border-radius: 5px;
-            transition: transform 0.2s;
+        /* Project Info Section */
+        .project-info {
+            background-color: #f8f9fa;
+            padding: 60px 0;
+            margin-bottom: 60px;
         }
 
-        .gallery img:hover {
-            transform: scale(1.05);
+        .project-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #5a5a5a;
+            margin-bottom: 40px;
         }
 
-        /* Footer Styles */
-        footer {
+        .project-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .detail-item {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .detail-item .label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             color: #96695e;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .detail-item .value {
+            font-size: 1.2rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #96695e;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            text-align: center;
+            margin-bottom: 50px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Masonry-style Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 15px;
+            margin-bottom: 60px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: visible;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+            cursor: pointer;
+            background-color: #f8f9fa;
+        }
+
+        /* Different sizes for variety */
+        .gallery-item.span-4 {
+            grid-column: span 4;
+        }
+
+        .gallery-item.span-6 {
+            grid-column: span 6;
+        }
+
+        .gallery-item.span-8 {
+            grid-column: span 8;
+        }
+
+        .gallery-item.span-12 {
+            grid-column: span 12;
+        }
+
+        .gallery-item.tall {
+            grid-row: span 2;
+        }
+
+        .gallery-item .img-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 300px;
+            overflow: hidden;
+            border-radius: 8px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .gallery-item.tall .img-container {
+            min-height: 615px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .gallery-item:hover {
+            z-index: 1000;
+        }
+        
+        .gallery-item:hover .img-container {
+            transition: transform 0.4s ease;
+        }
+
+        /* Landscape images */
+        .gallery-item .img-container.landscape:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.9);
+            z-index: 1001;
+            transform: scale(1.5, 1.5);
+            min-width: 700px;
+        }
+
+        /* Portrait images */
+        .gallery-item .img-container.portrait:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.9);
+            z-index: 1001;
+            transform: scale(2.5, 1);
+            /* min-width: 400px; */
+            max-width: 400px;
+        }
+
+        .gallery-item:hover img {
+            object-fit: fill;
+        }
+
+        /* Hover trigger area to maintain hover state */
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #96695e 0%, #754f48 100%);
+            padding: 80px 0;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section h3 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
         }
 
         /* Button Styles */
@@ -101,38 +284,131 @@
             background-color: #96695e;
             color: #ffffff;
             border: none;
+            padding: 14px 40px;
+            font-size: 1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            letter-spacing: 0.5px;
         }
 
         .btn-custom:hover {
             background-color: #754f48;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
         }
 
-        /* Contact Info Styles */
-        .contact a {
+        .btn-outline-light {
+            border: 2px solid white;
+            color: white;
+            padding: 14px 40px;
+            font-size: 1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-outline-light:hover {
+            background-color: white;
             color: #96695e;
-            font-size: 1.2rem;
-            text-decoration: none;
+            transform: translateY(-2px);
         }
 
-        .contact a:hover {
-            text-decoration: underline;
+        /* Footer Styles */
+        footer {
+            color: #96695e;
+            padding: 30px 0;
+        }
+
+        /* Overlay for hover effect */
+        .gallery-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0);
+            opacity: 0;
+            z-index: 999;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+        }
+
+        .gallery-item:hover ~ .gallery-overlay {
+            opacity: 1;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 767px) {
+            .project-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .project-hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .project-hero {
+                height: 50vh;
+                min-height: 350px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .gallery-item.span-4,
+            .gallery-item.span-6,
+            .gallery-item.span-8,
+            .gallery-item.span-12 {
+                grid-column: span 1;
+            }
+
+            .gallery-item.tall {
+                grid-row: span 1;
+            }
+
+            .gallery-item .img-container,
+            .gallery-item.tall .img-container {
+                min-height: 250px;
+            }
+
+            /* No hover effects on mobile */
+            .gallery-item:hover .img-container {
+                transform: none;
+            }
+
+            .gallery-item:hover img {
+                object-fit: cover;
+            }
+
+            .project-details {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .cta-section h3 {
+                font-size: 1.8rem;
+            }
+
+            .cta-section p {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Header -->
     <header>
-        <!-- <div class="wave-container">
-            <svg viewBox="0 0 500 150" preserveAspectRatio="none">
-                <path
-                    d="M0,150 C250,0 250,0 500,150 L500,150 L0,150 Z"
-                    style="stroke: none; fill: #ffffff"
-                ></path>
-            </svg>
-        </div>  -->
         <nav class="navbar navbar-expand-lg navbar-dark">
             <a class="navbar-brand" href="index.html">
-                <!-- Logo -->
                 <img
                     src="images/belaku_white_bg.png"
                     alt="Logo"
@@ -158,82 +434,173 @@
             >
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home<span class="sr-only"></span></a>
+                        <a class="nav-link" href="index.html">Home</a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="gallery.html">Progress</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="project.html">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Progress</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="testimonials.html">Testimonials</a>
                     </li>
                 </ul>
             </div>
         </nav>
     </header>
 
-    <!-- Gallery Section -->
-    <div class="container my-5">
-        <h2 class="text-center mb-4">DVG</h2>
-        <p class="lead text-center">
-            The restoration of the old villa transforms it into a chic property, blending timeless charm with contemporary style
-        </p>
-    
-        <h2 class="text-center mb-4"></h2>
-        <div class="row gallery">
-            <!-- Image 1 -->
-            <div class="col-md-4">
-                <img src="images/dvg_project/Dvg_Renov_1 (1).webp" alt="Project Image 1">
-            </div>
-            <!-- Image 2 -->
-            <div class="col-md-4">
-                <img src="images/dvg_project/Dvg_Renov_1 (2).webp" alt="Project Image 2">
-            </div>
-            <div class="col-md-4">
-                <img src="images/dvg_project/Dvg_Renov_1 (3).webp" alt="Project Image 3">
-            </div>
-            <div class="col-md-4">
-                <img src="images/dvg_project/Dvg_Renov_1 (4).webp" alt="Project Image 4">
-            </div>
-            <div class="col-md-4">
-                <img src="images/dvg_project/Dvg_Renov_1 (5).webp" alt="Project Image 2">
-            </div>
-            <div class="col-md-4">
-                <img src="images/dvg_project/Dvg_Renov_1 (6).webp" alt="Project Image 2">
-            </div>
-            <div class="col-md-4">
-                <img src="images/dvg_project/Dvg_Renov_1 (7).webp" alt="Project Image 2">
-            </div>
-            <div class="col-md-4">
-                <img src="images/dvg_project/Dvg_Renov_1 (8).webp" alt="Project Image 2">
-            </div>
-            <div class="col-md-4">
-                <img src="images/dvg_project/Dvg_Renov_1 (9).webp" alt="Project Image 2">
-            </div>
-           
+    <!-- Hero Section -->
+    <div class="project-hero">
+        <div class="project-hero-content">
+            <h1>Davanagere Villa Restoration</h1>
+            <p class="subtitle">Transforming heritage into contemporary elegance</p>
         </div>
-        <div class="text-center">
-            <a href="project.html" class="btn btn-custom">Back to Projects</a>
-          </div>
-        <p class="text-center mt-4 contact">
-            Interested in working with us? Reach out via email:
-            <a href="mailto:ar.nehabatny@gmail.com">ar.nehabatny@gmail.com</a>
-          </p>
     </div>
 
+    <!-- Project Info Section -->
+    <div class="project-info">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="section-title">About This Project</h2>
+                    <div class="project-description">
+                        <p>The restoration of the old DVG villa represents a harmonious blend of preservation and innovation. This historic property, nestled in Davangere, has been meticulously transformed into a chic contemporary residence while maintaining its timeless architectural charm.</p>
+                        
+                        <p>Our approach focused on celebrating the villa's original character—its grand proportions, classical details, and spatial flow—while introducing modern amenities and design elements that meet contemporary living standards. Every corner tells a story of careful restoration, from the preserved original flooring to the reimagined living spaces that now flow seamlessly with natural light.</p>
+                        
+                        <p>The project exemplifies our philosophy of responsive architecture, where historical context informs modern design. By honoring the villa's heritage while embracing contemporary aesthetics, we've created a space that transcends time, offering both nostalgia and modern comfort.</p>
+                    </div>
 
+                    <div class="project-details">
+                        <div class="detail-item">
+                            <div class="label">Location</div>
+                            <div class="value">Davangere, Karnataka</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="label">Year</div>
+                            <div class="value">2024</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="label">Area</div>
+                            <div class="value">5,500 sq ft</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="gallery-section">
+        <div class="container">
+            <h2 class="section-title">Project Gallery</h2>
+            <p class="section-subtitle">Explore the transformation through our curated collection of images showcasing the villa's journey from heritage to contemporary elegance</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item span-8">
+                    <div class="img-container">
+                        <img src="images/dvg_project/DavangereHouse1.jpg" alt="DVG Villa exterior view">
+                    </div>
+                </div>
+                <div class="gallery-item span-4 tall">
+                    <div class="img-container">
+                        <img src="images/dvg_project/DavangereHouse2.png" alt="Restored living space">
+                    </div>
+                </div>
+
+                <div class="gallery-item span-8">
+                    <div class="img-container">
+                        <img src="images/dvg_project/DavangereHouse7.png" alt="Interior design details">
+                    </div>
+                </div>
+                <div class="gallery-item span-6 tall">
+                    <div class="img-container">
+                        <img src="images/dvg_project/DavangereHouse4.png" alt="Kitchen and dining area">
+                    </div>
+                </div>
+
+                <div class="gallery-item span-6 tall">
+                    <div class="img-container">
+                        <img src="images/dvg_project/DavangereHouse5.png" alt="Bedroom with natural light">
+                    </div>
+                </div>
+                <div class="gallery-item span-8">
+                    <div class="img-container">
+                        <img src="images/dvg_project/DavangereHouse6.png" alt="Bathroom renovation">
+                    </div>
+                </div>
+
+                <div class="gallery-item span-4">
+                    <div class="img-container">
+                        <img src="images/dvg_project/DavangereHouse3.png" alt="Outdoor living space">
+                    </div>
+                </div>
+                <div class="gallery-item span-6">
+                    <div class="img-container">
+                        <img src="images/dvg_project/DavangereHouse8.png" alt="Architectural details">
+                    </div>
+                </div>
+                <div class="gallery-item span-6 tall">
+                    <div class="img-container">
+                        <img src="images/dvg_project/DavangereHouse9.png" alt="Garden and landscaping">
+                    </div>
+                </div>
+
+                <div class="gallery-item span-12">
+                    <div class="img-container">
+                        <img src="images/dvg_project/DavangereHouse10.png" alt="Evening ambiance">
+                    </div>
+                </div>
+
+            <div class="gallery-overlay"></div>
+            
+        </div>
+            
+            <div class="text-center mt-4">
+                <a href="project.html" class="btn btn-custom">← Back to Projects</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="cta-section">
+        <div class="container">
+            <h3>Ready to Transform Your Space?</h3>
+            <p>Let's create something beautiful together</p>
+            <a href="mailto:neha@belakuarchitects.com" class="btn btn-outline-light">Get in Touch</a>
+        </div>
+    </div>
 
     <!-- Footer -->
-    <footer class="bg-light text-center py-3">
+    <footer class="bg-light text-center">
         &copy; 2024 Belaku. All rights reserved.
     </footer>
 
     <!-- Bootstrap JS, Popper.js, and jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script
-        src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-    ></script>
-    <script
-        src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.querySelectorAll('.gallery-item .img-container').forEach(img => {
+            console.log(img.clientWidth, img.clientHeight);
+            // img.addEventListener('load', () => {
+                console.log("Loaded image: ", img);
+                image_tag = img.querySelector('img');
+                if (img.clientHeight > img.clientWidth) {
+                    console.log("Adding portrait class to ", img);
+                    img.classList.add('portrait');
+                } else {
+                    console.log("Adding landscape class to ", img);
+                    img.classList.add('landscape');
+                }
+            // });
+        });
+    </script>
 </body>
 </html>

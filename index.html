@@ -14,6 +14,7 @@
     body {
       font-family: "DM Sans", sans-serif;
       color: #96695e;
+      overflow-x: hidden;
     }
 
     a {
@@ -31,9 +32,7 @@
     .navbar {
       background-color: transparent;
       padding-top: 0.1rem;
-      /* Reduced padding */
       padding-bottom: 0.1rem;
-      /* Reduced padding */
       z-index: 2;
     }
 
@@ -82,7 +81,6 @@
 
     .wave-container svg path {
       fill: #ffffff;
-      /* White color for the wave */
     }
 
     /* Set footer text color */
@@ -95,11 +93,14 @@
       background-color: #96695e;
       color: #ffffff;
       border: none;
+      padding: 12px 30px;
+      font-size: 1rem;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
     }
 
     .btn-custom:hover {
       background-color: #754f48;
-      /* Slightly darker shade on hover */
     }
 
     /* Contact Info Styles */
@@ -113,53 +114,221 @@
       text-decoration: underline;
     }
 
+    /* Carousel Styles */
     .carousel-item {
-      padding: 0 15px;
-      margin-top: 3px;
+      padding: 0;
+      margin-top: 0;
     }
 
-    .carousel-item .col-md-4 {
-      padding: 0 5px;
+    /* Desktop: Show 3 images in a row */
+    @media (min-width: 768px) {
+      .carousel-item .carousel-image-wrapper {
+        display: flex;
+        margin: 0;
+      }
+
+      .carousel-item .carousel-image-item {
+        padding: 5px;
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+      }
+
+      .square {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .square:after {
+        content: "";
+        display: block;
+        padding-bottom: 150%;
+      }
+
+      .square img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+      }
+
+      .square:hover img {
+        transform: scale(1.05);
+      }
+
+      /* Hide mobile-only carousel */
+      #mobileCarousel {
+        display: none;
+      }
+
+      #desktopCarousel {
+        display: block;
+      }
     }
 
-    .square {
-      position: relative;
-      width: 100%;
-      overflow: hidden;
+    /* Mobile: Show 1 image per slide */
+    @media (max-width: 767px) {
+      #desktopCarousel {
+        display: none;
+      }
+
+      #mobileCarousel {
+        display: block;
+      }
+
+      .carousel-item .carousel-image-wrapper {
+        display: block;
+        margin: 0;
+      }
+
+      .carousel-item .carousel-image-item {
+        padding: 0;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .square {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .square:after {
+        content: "";
+        display: block;
+        padding-bottom: 150%;
+      }
+
+      .square img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
 
-    .square:after {
-      content: "";
-      display: block;
-      padding-bottom: 100%;
-      /* 1:1 aspect ratio */
+    /* Carousel indicators positioning */
+    .carousel-indicators {
+      bottom: -40px;
     }
 
-    .square img {
-      position: absolute;
+    .carousel-indicators li {
+      background-color: #96695e;
+    }
+
+    /* Add margin to accommodate indicators */
+    .carousel-wrapper {
+      margin-bottom: 50px;
+    }
+
+    /* Overlay for hover effect */
+    .hover-overlay {
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      background-color: rgba(0, 0, 0, 0);
+      opacity: 0;
+      z-index: 999;
+      transition: opacity 0.5s ease;
+      pointer-events: none;
     }
 
+    .project-card:hover ~ .hover-overlay,
+    .hover-overlay.active {
+      opacity: 1;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    /* Project Cards */
     .project-card {
-      transition: transform 0.3s;
       border: none;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      overflow: visible;
+      position: relative;
+      transition: box-shadow 0.2s ease;
+      height: 100%;
     }
 
-    .project-card:hover {
-      transform: scale(1.05);
+    .project-card .card-img-container {
+      position: relative;
+      height: 350px;
+      overflow: hidden;
+      background-color: #f8f9fa;
+      cursor: pointer;
+      transition: all 0.5s ease;
     }
 
     .project-card img {
-      height: 200px;
+      width: 100%;
+      height: 350px;
       object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: all 0.5s ease;
+    }
+
+    .project-card:hover {
+      z-index: 1000;
+    }
+
+    .project-card:hover .card-img-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: auto;
+      max-height: 60vh;
+      overflow: visible;
+      z-index: 1001;
+      background-color: #ffffff;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+      border-radius: 8px;
+      padding: 10px;
+      transform: translateY(-5em);
+    }
+
+    .project-card:hover img {
+      height: auto;
+      width: 100%;
+      object-fit: cover;
+      max-height: calc(60vh - 20px);
+    }
+
+    /* .project-card:hover .card-body {
+      position: absolute;
+      top: calc(100%);
+      left: 0;
+      right: 0;
+      z-index: 1002;
+      background: #f8f9fa;
+      background-color: #ffffff;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+      border-radius: 8px;
+    } */
+
+    /* Hover trigger area - stays in place */
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 200px;
+      z-index: 1;
+      pointer-events: none;
     }
 
     .project-card .card-body {
       background-color: #f8f9fa;
+      position: relative;
+      z-index: 1;
     }
 
     .project-card .card-title {
@@ -172,18 +341,56 @@
       color: #96695e;
       font-size: 1rem;
     }
+
+    /* Mobile-specific adjustments */
+    @media (max-width: 767px) {
+      .container {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+
+      h2 {
+        font-size: 1.75rem;
+      }
+
+      .contact {
+        font-size: 0.95rem;
+      }
+
+      .contact a {
+        font-size: 1rem;
+        word-break: break-word;
+      }
+
+      .project-card .card-img-container {
+        height: 280px;
+      }
+
+      .project-card img {
+        height: 280px;
+      }
+
+      .project-card::before {
+        height: 280px;
+      }
+
+      .project-card:hover .card-img-container {
+        max-height: 85vh;
+      }
+
+      .project-card:hover img {
+        max-height: calc(85vh - 40px);
+      }
+    }
+
+    
   </style>
 </head>
 
 <body>
   <header>
-    <!-- <div class="wave-container">
-      <svg viewBox="0 0 500 150" preserveAspectRatio="none">
-        <path d="M0,150 C250,0 250,0 500,150 L500,150 L0,150 Z" style="stroke: none; fill: #ffffff"></path>
-      </svg>
-    </div> -->
     <nav class="navbar navbar-expand-lg navbar-dark">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="index.html">
         <!-- Logo -->
         <img src="images/belaku_white_bg.png" alt="Logo" width="170" height="60" style="z-index: 100" />
       </a>
@@ -194,100 +401,192 @@
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home<span class="sr-only"></span></a>
+            <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
           </li>
-           <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" href="about.html">About</a>
           </li>
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" href="services.html">Services</a>
           </li>
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" href="project.html">Projects</a>
           </li>
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" href="gallery.html">Progress</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="testimonials.html">Testimonials</a>
           </li>
         </ul>
       </div>
     </nav>
-    <!-- Wave SVG -->
   </header>
 
-  <!-- Image Slider -->
-  <div id="homeCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#homeCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#homeCarousel" data-slide-to="1"></li>
+  <!-- Carousel Wrapper -->
+  <div class="carousel-wrapper">
+    <!-- Desktop Carousel: 3 images per slide -->
+    <div id="desktopCarousel" class="carousel slide" data-ride="carousel" data-interval="4000">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#desktopCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#desktopCarousel" data-slide-to="1"></li>
+      </ol>
 
-    </ol>
-
-    <!-- Slides -->
-    <div class="carousel-inner">
-      <!-- First slide -->
-      <div class="carousel-item active">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="square">
-              <img src="images/slider1.webp" class="d-block w-100" alt="Image 1" />
+      <!-- Slides -->
+      <div class="carousel-inner">
+        <!-- Slide 1: Images 1-3 -->
+        <div class="carousel-item active">
+          <div class="carousel-image-wrapper">
+            <div class="carousel-image-item">
+              <div class="square">
+                <img src="images/slider1.jpeg" class="d-block w-100" alt="Architecture design 1" />
+              </div>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="square">
-              <img src="images/slider2.webp" class="d-block w-100" alt="Image 2" />
+            <div class="carousel-image-item">
+              <div class="square">
+                <img src="images/slider2.jpeg" class="d-block w-100" alt="Architecture design 2" />
+              </div>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="square">
-              <img src="images/slider3.webp" class="d-block w-100" alt="Image 3" />
+            <div class="carousel-image-item">
+              <div class="square">
+                <img src="images/slider3.jpeg" class="d-block w-100" alt="Architecture design 3" />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <!-- Second slide -->
-      <div class="carousel-item">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="square">
-              <img src="images/slider4.webp" class="d-block w-100" alt="Image 4" />
+        <!-- Slide 2: Images 4-6 -->
+        <div class="carousel-item">
+          <div class="carousel-image-wrapper">
+            <div class="carousel-image-item">
+              <div class="square">
+                <img src="images/slider4.webp" class="d-block w-100" alt="Architecture design 4" />
+              </div>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="square">
-              <img src="images/slider5.webp" class="d-block w-100" alt="Image 5" />
+            <div class="carousel-image-item">
+              <div class="square">
+                <img src="images/slider5.webp" class="d-block w-100" alt="Architecture design 5" />
+              </div>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="square">
-              <img src="images/slider6.webp" class="d-block w-100" alt="Image 6" />
+            <div class="carousel-image-item">
+              <div class="square">
+                <img src="images/slider6.webp" class="d-block w-100" alt="Architecture design 6" />
+              </div>
             </div>
           </div>
         </div>
+        <!-- Add more slides here as needed, always with 3 images per slide -->
       </div>
 
+      <!-- Controls -->
+      <a class="carousel-control-prev" href="#desktopCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#desktopCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
     </div>
 
-    <!-- Controls -->
-    <a class="carousel-control-prev" href="#homeCarousel" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#homeCarousel" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
+    <!-- Mobile Carousel: 1 image per slide -->
+    <div id="mobileCarousel" class="carousel slide" data-ride="carousel" data-interval="4000">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#mobileCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#mobileCarousel" data-slide-to="1"></li>
+        <li data-target="#mobileCarousel" data-slide-to="2"></li>
+        <li data-target="#mobileCarousel" data-slide-to="3"></li>
+        <li data-target="#mobileCarousel" data-slide-to="4"></li>
+        <li data-target="#mobileCarousel" data-slide-to="5"></li>
+      </ol>
+
+      <!-- Slides -->
+      <div class="carousel-inner">
+        <!-- Image 1 -->
+        <div class="carousel-item active">
+          <div class="carousel-image-wrapper">
+            <div class="carousel-image-item">
+              <div class="square">
+                <img src="images/slider1.jpeg" class="d-block w-100" alt="Architecture design 1" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Image 2 -->
+        <div class="carousel-item">
+          <div class="carousel-image-wrapper">
+            <div class="carousel-image-item">
+              <div class="square">
+                <img src="images/slider2.jpeg" class="d-block w-100" alt="Architecture design 2" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Image 3 -->
+        <div class="carousel-item">
+          <div class="carousel-image-wrapper">
+            <div class="carousel-image-item">
+              <div class="square">
+                <img src="images/slider3.jpeg" class="d-block w-100" alt="Architecture design 3" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Image 4 -->
+        <div class="carousel-item">
+          <div class="carousel-image-wrapper">
+            <div class="carousel-image-item">
+              <div class="square">
+                <img src="images/slider4.webp" class="d-block w-100" alt="Architecture design 4" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Image 5 -->
+        <div class="carousel-item">
+          <div class="carousel-image-wrapper">
+            <div class="carousel-image-item">
+              <div class="square">
+                <img src="images/slider5.webp" class="d-block w-100" alt="Architecture design 5" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Image 6 -->
+        <div class="carousel-item">
+          <div class="carousel-image-wrapper">
+            <div class="carousel-image-item">
+              <div class="square">
+                <img src="images/slider6.webp" class="d-block w-100" alt="Architecture design 6" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Add more individual image slides here as needed -->
+      </div>
+
+      <!-- Controls -->
+      <a class="carousel-control-prev" href="#mobileCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#mobileCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
   </div>
 
   <div class="container my-5">
     <h2 class="text-center mb-4">Spaces We Design</h2>
     <div class="row">
       <!-- Project 1 -->
-      <div class="col-md-4 mb-4">
+      <div class="col-md-4 col-sm-6 mb-4">
         <div class="card project-card">
-        
-            <img src="images/landscape.webp" class="card-img-top" alt="Project 1" />
-          
+          <div class="card-img-container">
+            <img src="images/garden.jpeg" class="card-img-top" alt="Garden design" />
+          </div>
           <div class="card-body">
             <h5 class="card-title">Garden</h5>
             <p class="card-text">Inbuilt spaces with serenity</p>
@@ -295,70 +594,71 @@
         </div>
       </div>
       <!-- Project 2 -->
-      <div class="col-md-4 mb-4">
+      <div class="col-md-4 col-sm-6 mb-4">
         <div class="card project-card">
-         
-            <img src="images/facade_design.webp" class="card-img-top" alt="Project 2" />
-          
+          <div class="card-img-container">
+            <img src="images/facade.jpeg" class="card-img-top" alt="Facade design" />
+          </div>
           <div class="card-body">
-            <h5 class="card-title">Facade design</h5>
+            <h5 class="card-title">Facade Design</h5>
             <p class="card-text">Structure meets design</p>
           </div>
         </div>
       </div>
       <!-- Project 3 -->
-      <div class="col-md-4 mb-4">
+      <div class="col-md-4 col-sm-6 mb-4">
         <div class="card project-card">
-         
-            <img src="images/toilet.webp" class="card-img-top" alt="Project 3" />
-          
+          <div class="card-img-container">
+            <img src="images/bathroom.jpeg" class="card-img-top" alt="Bathroom design" />
+          </div>
           <div class="card-body">
             <h5 class="card-title">Bathroom</h5>
             <p class="card-text">Comfort meets functionality</p>
           </div>
         </div>
       </div>
-      <div class="row">
-        <!-- Project 1 -->
-        <div class="col-md-4 mb-4">
-          <div class="card project-card">
-            
-              <img src="images/bedroom.webp" class="card-img-top" alt="Project 1" />
-            
-            <div class="card-body">
-              <h5 class="card-title">Bedroom</h5>
-              <p class="card-text">Crafting privacy and comfort</p>
-            </div>
+      <!-- Project 4 -->
+      <div class="col-md-4 col-sm-6 mb-4">
+        <div class="card project-card">
+          <div class="card-img-container">
+            <img src="images/bedroom.jpeg" class="card-img-top" alt="Bedroom design" />
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Bedroom</h5>
+            <p class="card-text">Crafting privacy and comfort</p>
           </div>
         </div>
-        <!-- Project 2 -->
-        <div class="col-md-4 mb-4">
-          <div class="card project-card">
-           
-              <img src="images/office.webp" class="card-img-top" alt="Project 2" />
-            
-            <div class="card-body">
-              <h5 class="card-title">Office Space</h5>
-              <p class="card-text">Designed for productivity</p>
-            </div>
+      </div>
+      <!-- Project 5 -->
+      <div class="col-md-4 col-sm-6 mb-4">
+        <div class="card project-card">
+          <div class="card-img-container">
+            <img src="images/office.jpeg" class="card-img-top" alt="Office space design" />
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Office Space</h5>
+            <p class="card-text">Designed for productivity</p>
           </div>
         </div>
-        <!-- Project 3 -->
-        <div class="col-md-4 mb-4">
-          <div class="card project-card">
-            
-              <img src="images/sit_out_area.webp" class="card-img-top" alt="Project 3" />
-            
-            <div class="card-body">
-              <h5 class="card-title">Balcony</h5>
-              <p class="card-text">Elevated outdoor living</p>
-            </div>
+      </div>
+      <!-- Project 6 -->
+      <div class="col-md-4 col-sm-6 mb-4">
+        <div class="card project-card">
+          <div class="card-img-container">
+            <img src="images/balcony.jpeg" class="card-img-top" alt="Balcony design" />
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Balcony</h5>
+            <p class="card-text">Elevated outdoor living</p>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="text-center">
+    <!-- Hover overlay moved inside container -->
+    <div class="hover-overlay" id="hoverOverlay"></div>
+
+    <div class="text-center mt-4">
       <a href="project.html" class="btn btn-custom">Explore Projects</a>
     </div>
 
@@ -369,7 +669,7 @@
   </div>
 
   <!-- Footer -->
-  <footer class="bg-light text-center py-3">
+  <footer class="bg-light text-center py-3 mt-5">
     &copy; 2024 Belaku. All rights reserved.
   </footer>
 
@@ -377,6 +677,12 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- Custom JavaScript for hover effect -->
+  <script>
+    // Pure CSS hover - no JavaScript needed for the effect
+    // The overlay appears automatically via CSS :hover pseudo-class
+  </script>
 </body>
 
 </html>

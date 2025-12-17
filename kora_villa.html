@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seeguvani Residence - Adya Belaku</title>
+    <title>Koramangala Villa - Adya Belaku</title>
     <!-- Bootstrap CSS -->
     <link
         rel="stylesheet"
@@ -56,7 +56,7 @@
             position: relative;
             height: 48vh;
             min-height: 400px;
-            background-image: url('images/sv_residence/sv_mane2.jpeg');
+            background-image: url('images/koramangala_villa/kora_villa3.jpeg');
             background-position: center;
             background-size: cover;
             display: flex;
@@ -170,8 +170,8 @@
         /* Masonry-style Gallery */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            grid-auto-rows: 200px;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 150px;
             gap: 12px;
             margin-bottom: 60px;
         }
@@ -186,29 +186,17 @@
             background-color: #f8f9fa;
         }
 
-        /* Different sizes for variety */
-        .gallery-item.span-4 {
-            grid-column: span 4;
-        }
-
-        .gallery-item.span-6 {
-            grid-column: span 6;
-        }
-
-        .gallery-item.span-8 {
-            grid-column: span 8;
-        }
-
-        .gallery-item.span-12 {
-            grid-column: span 12;
-        }
-
-        .gallery-item.row-2 {
-            grid-row: span 2;
-        }
-
-        .gallery-item.row-3 {
+        /* Varying heights for masonry effect */
+        .gallery-item.height-3 {
             grid-row: span 3;
+        }
+
+        .gallery-item.height-4 {
+            grid-row: span 4;
+        }
+
+        .gallery-item.height-5 {
+            grid-row: span 5;
         }
 
         .gallery-item .img-container {
@@ -252,7 +240,7 @@
         }
 
         .gallery-item:hover img {
-            object-fit: fill;
+            object-fit: cover;
         }
 
         /* Hover trigger area to maintain hover state */
@@ -373,27 +361,6 @@
                 gap: 12px;
             }
 
-            .gallery-item.span-4,
-            .gallery-item.span-6,
-            .gallery-item.span-8,
-            .gallery-item.span-12 {
-                grid-column: span 1;
-            }
-
-            .gallery-item.row-2,
-            .gallery-item.row-3 {
-                grid-row: span 1;
-            }
-
-            /* No hover effects on mobile */
-            .gallery-item:hover .img-container {
-                transform: none;
-            }
-
-            .gallery-item:hover img {
-                object-fit: cover;
-            }
-
             .project-details {
                 grid-template-columns: 1fr;
                 gap: 15px;
@@ -453,7 +420,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="gallery.html">Progress</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="testimonials.html">Testimonials</a>
                     </li>
                 </ul>
@@ -464,8 +431,8 @@
     <!-- Hero Section -->
     <div class="project-hero">
         <div class="project-hero-content">
-            <h1>Seeguvani Residence</h1>
-            <p class="subtitle">Rustic home design features matte tiles and natural stone, creating a warm, earthy aesthetic that evokes a sense of comfort and authenticity.</p>
+            <h1>Koramangala Villa</h1>
+            <p class="subtitle">A refined Koramangala triplex residence that embodies contemporary urban luxury through premium materials, elegant lighting, and meticulous detailing.</p>
         </div>
     </div>
 
@@ -476,15 +443,8 @@
                 <div class="col-lg-8 mx-auto">
                     <h2 class="section-title">About This Project</h2>
                     <div class="project-description">
-                        <p>Building a home that reflects one's roots was always the guiding dream behind Seeguvani. Hailing from Chikmagalur, the homeowners wanted their house to embody the spirit of their hometown, with a special nod to Vivek's native village, Seeguvani, which lends the home its name.</p>
-
-                        <p>From the outset, the vision was clear: a home filled with natural light, generous ventilation, and a seamless connection to nature. These principles shaped every decision, allowing the house to breathe and remain calm, grounded, and comfortable throughout the day.</p>
-
-                        <p>The design carefully balances functionality and aesthetics while thoughtfully aligning with Vastu, creating a sense of harmony and positive energy across spaces. Elements like the skylight and the wooden staircase introduce warmth and character, while natural materials such as teakwood, terracotta jaali bricks, and Mangalore tiles lend the home its earthy, timeless appeal.</p>
-
-                        <p>Garden pockets and the Tulasi Katte strengthen the bond with the land, while a bullock cart wheel stands as a quiet reminder of agricultural roots and inherited values. One of the most cherished corners is the French garden door that opens into a serene green space—an intimate setting for morning coffee and slow, meaningful conversations.</p>
-
-                        <p>Every detail within Seeguvani feels intentional, rooted, and personal. The home stands not just as a place of living, but as a vessel of memories, traditions, and the many stories yet to unfold.</p>
+                        <p>This builder's triplex home in Koramangala is crafted to reflect refined urban luxury through impeccable planning and top-quality finishes. Premium materials take centre stage, with rich wood detailing and elegant marble surfaces lending the interiors a sense of warmth and sophistication.</p>
+                        <p>Thoughtfully integrated accent lighting enhances architectural features, adding depth and creating a layered, inviting atmosphere across all levels. The seamless balance of materiality, lighting, and meticulous execution results in a residence that feels contemporary, luxurious, and enduring in its appeal.</p>
                     </div>
 
                     <div class="project-details">
@@ -498,7 +458,7 @@
                         </div>
                         <div class="detail-item">
                             <div class="label">Area</div>
-                            <div class="value">2,600 sq ft</div>
+                            <div class="value">7,500 sq ft</div>
                         </div>
                     </div>
                 </div>
@@ -510,99 +470,81 @@
     <div class="gallery-section">
         <div class="container">
             <h2 class="section-title">Project Gallery</h2>
-            <p class="section-subtitle">Discover the essence of Seeguvani through imagery that captures the blend of tradition, craftsmanship, and natural beauty woven into every space.</p>
+            <p class="section-subtitle">Explore refined urban luxury through imagery highlighting premium materials, elegant lighting, and meticulous craftsmanship.</p>
             
             <div class="gallery-grid">
-                <!-- Row 1: Large horizontal landscape (sv_mane1) -->
-                <div class="gallery-item span-12 row-3">
+                <!-- Column 1 -->
+                <div class="gallery-item height-4">
                     <div class="img-container">
-                        <img src="images/sv_residence/sv_mane1.jpeg" alt="Seeguvani exterior view">
+                        <img src="images/koramangala_villa/kora_villa1.jpeg" alt="Luxurious living space">
                     </div>
                 </div>
 
-                <!-- Row 2: Tall portrait (sv_mane2) + Medium horizontal (sv_mane7) -->
-                <div class="gallery-item span-4 row-3">
+                <!-- Column 2 -->
+                <div class="gallery-item height-5">
                     <div class="img-container">
-                        <img src="images/sv_residence/sv_mane2.jpeg" alt="Entrance detail">
-                    </div>
-                </div>
-                <div class="gallery-item span-8 row-2">
-                    <div class="img-container">
-                        <img src="images/sv_residence/sv_mane6.jpeg" alt="Living space with natural light">
+                        <img src="images/koramangala_villa/kora_villa2.jpeg" alt="Elegant staircase detail">
                     </div>
                 </div>
 
-                
-
-                <!-- Row 4: Two tall portraits (sv_mane5, sv_mane3) + Medium (sv_mane6) -->
-                <div class="gallery-item span-4 row-3">
+                <!-- Column 3 -->
+                <div class="gallery-item height-3">
                     <div class="img-container">
-                        <img src="images/sv_residence/sv_mane5.jpeg" alt="Wooden staircase detail">
-                    </div>
-                </div>
-                <div class="gallery-item span-4 row-3">
-                    <div class="img-container">
-                        <img src="images/sv_residence/sv_mane3.jpeg" alt="Traditional architectural element">
-                    </div>
-                </div>
-                <div class="gallery-item span-4 row-3">
-                    <div class="img-container">
-                        <img src="images/sv_residence/sv_mane4.jpeg" alt="Terracotta details">
+                        <img src="images/koramangala_villa/kora_villa3.jpeg" alt="Modern bedroom design">
                     </div>
                 </div>
 
-                <!-- Row 3: Tall portrait (sv_mane4) -->
-                <div class="gallery-item span-8 row-2">
+                <!-- Column 1 continues -->
+                <div class="gallery-item height-5">
                     <div class="img-container">
-                        <img src="images/sv_residence/sv_mane7.jpeg" alt="Interior courtyard">
+                        <img src="images/koramangala_villa/kora_villa4.jpeg" alt="Premium material showcase">
                     </div>
                 </div>
 
-                <!-- Row 5: Medium (sv_mane8) + Tall portrait (sv_mane9) -->
-                <div class="gallery-item span-4 row-3">
+                <!-- Column 2 continues -->
+                <div class="gallery-item height-4">
                     <div class="img-container">
-                        <img src="images/sv_residence/sv_mane8.jpeg" alt="Dining area">
-                    </div>
-                </div>
-                <div class="gallery-item span-4 row-3">
-                    <div class="img-container">
-                        <img src="images/sv_residence/sv_mane9.jpeg" alt="Garden connection">
-                    </div>
-                </div>
-                
-                
-                
-                <!-- Row 6: Two medium squares (sv_mane10, sv_mane12) -->
-                <div class="gallery-item span-4 row-3">
-                    <div class="img-container">
-                        <img src="images/sv_residence/sv_mane10.jpeg" alt="Natural materials">
-                    </div>
-                </div>
-                <div class="gallery-item span-4 row-3">
-                    <div class="img-container">
-                        <img src="images/sv_residence/sv_mane12.jpeg" alt="Outdoor space">
+                        <img src="images/koramangala_villa/kora_villa5.jpeg" alt="Ambient lighting features">
                     </div>
                 </div>
 
-                <!-- Row 7: Large horizontal (sv_mane11) -->
-                <div class="gallery-item span-4 row-3">
+                <!-- Column 3 continues -->
+                <div class="gallery-item height-5">
                     <div class="img-container">
-                        <img src="images/sv_residence/sv_mane11.jpeg" alt="Overall view">
+                        <img src="images/koramangala_villa/kora_villa6.jpeg" alt="Refined interior spaces">
                     </div>
                 </div>
 
-                <!-- Row 7: Medium (sv_mane13) -->
-                <div class="gallery-item span-4 row-3">
+                <!-- Column 1 -->
+                <div class="gallery-item height-3">
                     <div class="img-container">
-                        <img src="images/sv_residence/sv_mane13.jpeg" alt="Final detail">
+                        <img src="images/koramangala_villa/kora_villa7.jpeg" alt="Contemporary kitchen">
                     </div>
                 </div>
 
-            <!-- Hover overlay -->
-            <div class="gallery-overlay"></div>
+                <!-- Column 2 -->
+                <div class="gallery-item height-4">
+                    <div class="img-container">
+                        <img src="images/koramangala_villa/kora_villa8.jpeg" alt="Architectural details">
+                    </div>
+                </div>
 
+                <!-- Column 3 -->
+                <div class="gallery-item height-4">
+                    <div class="img-container">
+                        <img src="images/koramangala_villa/kora_villa9.jpeg" alt="Luxury bathroom">
+                    </div>
+                </div>
+
+                <!-- Final image spanning full width feel -->
+                <div class="gallery-item height-5">
+                    <div class="img-container">
+                        <img src="images/koramangala_villa/kora_villa10.jpeg" alt="Complete interior view">
+                    </div>
+                </div>
+
+                <div class="gallery-overlay"></div>
             </div>
-
 
             <div class="text-center mt-4">
                 <a href="project.html" class="btn btn-custom">← Back to Projects</a>

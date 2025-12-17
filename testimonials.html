@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Testimonials - Adya Belaku</title>
+    <!-- Bootstrap CSS -->
+    <link
+        rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <!-- Google Fonts: DM Sans -->
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
+    />
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: "DM Sans", sans-serif;
+            color: #96695e;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: #96695e;
+        }
+
+        /* Header styling */
+        header {
+            position: relative;
+            background-color: #96695e;
+            color: #ffffff;
+            z-index: 2;
+        }
+
+        .navbar {
+            background-color: transparent;
+            padding-top: 0.1rem;
+            padding-bottom: 0.1rem;
+            z-index: 2;
+        }
+
+        .navbar-dark .navbar-nav .nav-link,
+        .navbar-dark .navbar-brand {
+            color: #ffffff;
+        }
+
+        .navbar-dark .navbar-nav .nav-link.active,
+        .navbar-dark .navbar-nav .show > .nav-link {
+            color: #ffffff;
+        }
+
+        /* Hero Section */
+        .testimonials-hero {
+            background: linear-gradient(135deg, #96695e 0%, #754f48 100%);
+            padding: 80px 0;
+            text-align: center;
+            color: white;
+            margin-bottom: 80px;
+        }
+
+        .testimonials-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .testimonials-hero .subtitle {
+            font-size: 1.3rem;
+            font-weight: 400;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 0 0 80px 0;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 12px;
+            padding: 50px;
+            margin-bottom: 50px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 40px;
+            font-size: 120px;
+            color: #96695e;
+            opacity: 0.1;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f8f9fa;
+        }
+
+        .project-badge {
+            background: linear-gradient(135deg, #96695e 0%, #754f48 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .testimonial-content {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: #5a5a5a;
+            margin-bottom: 30px;
+        }
+
+        .testimonial-content p {
+            margin-bottom: 20px;
+        }
+
+        .testimonial-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 2px solid #f8f9fa;
+        }
+
+        .author-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #96695e;
+            margin: 0;
+        }
+
+        /* Alternating background */
+        .testimonial-card:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #96695e 0%, #754f48 100%);
+            padding: 80px 0;
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+        }
+
+        .cta-section h3 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        /* Button Styles */
+        .btn-custom {
+            background-color: #96695e;
+            color: #ffffff;
+            border: none;
+            padding: 14px 40px;
+            font-size: 1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-custom:hover {
+            background-color: #754f48;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-outline-light {
+            border: 2px solid white;
+            color: white;
+            padding: 14px 40px;
+            font-size: 1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-outline-light:hover {
+            background-color: white;
+            color: #96695e;
+            transform: translateY(-2px);
+        }
+
+        /* Footer Styles */
+        footer {
+            color: #96695e;
+            padding: 30px 0;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 767px) {
+            .testimonials-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .testimonials-hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .testimonials-hero {
+                padding: 60px 20px;
+                margin-bottom: 60px;
+            }
+
+            .testimonial-card {
+                padding: 35px 25px;
+                margin-bottom: 40px;
+            }
+
+            .testimonial-card::before {
+                font-size: 80px;
+                top: -10px;
+                left: 20px;
+            }
+
+            .testimonial-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .project-badge {
+                font-size: 0.85rem;
+                padding: 6px 16px;
+            }
+
+            .testimonial-content {
+                font-size: 1rem;
+                line-height: 1.8;
+            }
+
+            .author-name {
+                font-size: 1.1rem;
+            }
+
+            .cta-section h3 {
+                font-size: 1.8rem;
+            }
+
+            .cta-section p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="index.html">
+                <img
+                    src="images/belaku_white_bg.png"
+                    alt="Logo"
+                    width="170"
+                    height="60"
+                    style="z-index: 100"
+                />
+            </a>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div
+                class="collapse navbar-collapse justify-content-end"
+                id="navbarNav"
+            >
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="project.html">Projects</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="testimonials.html">Testimonials</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="testimonials-hero">
+        <h1>Client Testimonials</h1>
+        <p class="subtitle">Hear what our clients have to say about their experience working with Belaku</p>
+    </div>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <!-- Testimonial 1: Seeguvani -->
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="project-badge">Seeguvani Residence</div>
+                </div>
+                <div class="testimonial-content">
+                    <p>Building a home that reflects our roots has always been a dream. Being from Chikmagalur, we wanted our house to carry the essence of our hometown, especially Vivek's (my husband's) native village, Seeguvani, which also inspired the name of our home.</p>
+                    
+                    <p>From the start, we envisioned a space filled with natural light, good ventilation, and a strong connection to nature. Our architect, Neha, brought this vision to life with great sensitivity, ensuring these elements were never compromised.</p>
+
+                    <p>The house balances functionality and aesthetics while thoughtfully following Vastu, creating a calm and positive energy throughout. Features like the skylight and wooden staircase add warmth and character, while materials such as teakwood, terracotta jaali bricks, and Mangalore tiles give the home an earthy feel. The garden spaces and the Tulasi Katte strengthen our connection to the land, while a bullock cart wheel stands as a subtle symbol of our agricultural roots.</p>
+
+                    <p>One of our favourite corners is the French garden door that opens into a quiet green space—perfect for a cup of coffee and unhurried conversations. Every detail feels intentional and rooted.</p>
+
+                    <p>Even though this was only Neha's second major project, her maturity, dedication, and clarity stood out from day one. She coordinated seamlessly with multiple teams, patiently accommodated our ideas and changes, and stayed committed until we were fully satisfied.</p>
+
+                    <p>We are truly grateful to Neha for shaping Seeguvani, our home that carries our roots, stories, heart, and the many dreams we look forward to building within it.</p>
+                </div>
+                <div class="testimonial-author">
+                    <h4 class="author-name">— Sudeeksha</h4>
+                </div>
+            </div>
+
+            <!-- Testimonial 2: Villa 109 -->
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="project-badge">Villa 109</div>
+                </div>
+                <div class="testimonial-content">
+                    <p>Architect Neha from Belaku Design Studio brought clarity, creativity, and professionalism to our project. Her design sensibility, attention to detail, and smooth coordination made the entire process stress-free, delivering a space that truly feels thoughtful and well-crafted.</p>
+                </div>
+                <div class="testimonial-author">
+                    <h4 class="author-name">— Client, Villa 109</h4>
+                </div>
+            </div>
+
+            <!-- Testimonial 3: RR Villa -->
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="project-badge">RR Villa</div>
+                </div>
+                <div class="testimonial-content">
+                    <p>Her strong sense of colour coordination and material selection beautifully balanced our bold flooring with the traditional theme, resulting in a space that feels cohesive yet luxurious. With her regular site involvement and practical problem-solving, execution was seamless and the final outcome was refined and well-resolved.</p>
+                </div>
+                <div class="testimonial-author">
+                    <h4 class="author-name">— Client, RR Villa</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <div class="cta-section">
+        <div class="container">
+            <h3>Ready to Start Your Project?</h3>
+            <p>Let's create something exceptional together</p>
+            <a href="mailto:neha@belakuarchitects.com" class="btn btn-outline-light">Get in Touch</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center">
+        &copy; 2024 Belaku. All rights reserved.
+    </footer>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

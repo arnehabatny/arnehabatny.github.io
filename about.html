@@ -12,14 +12,14 @@
     <!-- Google Fonts: DM Sans -->
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
     />
     <!-- Custom Styles -->
     <style>
-      /* Include the same styles as in your index.html */
       body {
         font-family: "DM Sans", sans-serif;
         color: #96695e;
+        overflow-x: hidden;
       }
 
       a {
@@ -51,44 +51,140 @@
         color: #ffffff;
       }
 
-      /* Wave Styles */
-      .wave-container {
-        position: absolute;
-        bottom: 0;
-        left: 0;
+      /* About Images Section */
+      .about-images {
+        margin-top: 40px;
+        margin-bottom: 40px;
+      }
+
+      .about-images .col-6,
+      .about-images .col-md-4 {
+        margin-bottom: 20px;
+      }
+
+      .about-images img {
         width: 100%;
+        height: 400px;
+        object-fit: cover;
+        border-radius: 8px;
+        transition: transform 0.3s ease;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .about-images img:hover {
+        transform: scale(1.02);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Founder Section */
+      .founder-section {
+        background-color: #f8f9fa;
+        padding: 80px 0;
+        margin-top: 60px;
+        margin-bottom: 60px;
+      }
+
+      .founder-section .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #96695e;
+        margin-bottom: 50px;
+        text-align: center;
+      }
+
+      .founder-card {
+        background: white;
+        border-radius: 12px;
         overflow: hidden;
-        line-height: 0;
-        z-index: 1;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
 
-      .wave-container svg {
-        display: block;
+      .founder-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      }
+
+      .founder-image-wrapper {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .founder-image-wrapper img {
         width: 100%;
-        margin-left: 130px;
-        height: 70px;
-        z-index: 1;
+        height: 500px;
+        object-fit: cover;
+        transition: transform 0.4s ease;
       }
 
-      .wave-container svg path {
-        fill: #ffffff;
-      }
-
-      /* Gallery Styles */
-      .gallery .col-md-4 {
-        margin-bottom: 30px;
-      }
-
-      .gallery img {
-        width: 100%;
-        height: 250px; /* Set a fixed height */
-        object-fit: cover; /* Ensures images fill the container without distortion */
-        border-radius: 5px;
-        transition: transform 0.2s;
-      }
-
-      .gallery img:hover {
+      .founder-card:hover .founder-image-wrapper img {
         transform: scale(1.05);
+      }
+
+      .founder-content {
+        padding: 40px;
+      }
+
+      .founder-name {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #96695e;
+        margin-bottom: 10px;
+      }
+
+      .founder-title {
+        font-size: 1.1rem;
+        color: #754f48;
+        font-weight: 500;
+        margin-bottom: 25px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .founder-bio {
+        font-size: 1.05rem;
+        line-height: 1.8;
+        color: #5a5a5a;
+      }
+
+      /* Mobile optimization */
+      @media (max-width: 767px) {
+        .about-images img {
+          height: 300px;
+        }
+        
+        .about-images .col-6:last-child {
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        .founder-section {
+          padding: 60px 0;
+        }
+
+        .founder-section .section-title {
+          font-size: 2rem;
+        }
+
+        .founder-image-wrapper img {
+          height: 400px;
+        }
+
+        .founder-content {
+          padding: 30px 25px;
+        }
+
+        .founder-name {
+          font-size: 1.6rem;
+        }
+
+        .founder-title {
+          font-size: 1rem;
+        }
+
+        .founder-bio {
+          font-size: 1rem;
+        }
       }
 
       /* Footer Styles */
@@ -101,38 +197,26 @@
         background-color: #96695e;
         color: #ffffff;
         border: none;
+        padding: 14px 40px;
+        font-size: 1rem;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        letter-spacing: 0.5px;
       }
 
       .btn-custom:hover {
         background-color: #754f48;
-      }
-
-      /* Contact Info Styles */
-      .contact a {
-        color: #96695e;
-        font-size: 1.2rem;
-        text-decoration: none;
-      }
-
-      .contact a:hover {
-        text-decoration: underline;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
       }
     </style>
   </head>
   <body>
     <!-- Header -->
     <header>
-      <!-- <div class="wave-container">
-            <svg viewBox="0 0 500 150" preserveAspectRatio="none">
-                <path
-                    d="M0,150 C250,0 250,0 500,150 L500,150 L0,150 Z"
-                    style="stroke: none; fill: #ffffff"
-                ></path>
-            </svg>
-        </div>  -->
       <nav class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="index.html">
-          <!-- Logo -->
           <img
             src="images/belaku_white_bg.png"
             alt="Logo"
@@ -158,20 +242,18 @@
         >
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="index.html"
-                >Home<span class="sr-only"></span
-              ></a>
+              <a class="nav-link" href="index.html">Home</a>
             </li>
-             <li class="nav-item active">
+            <li class="nav-item active">
               <a class="nav-link" href="about.html">About</a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="services.html">Services</a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="project.html">Projects</a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="gallery.html">Progress</a>
             </li>
           </ul>
@@ -179,26 +261,72 @@
       </nav>
     </header>
 
-    <!-- Gallery Section -->
+    <!-- About Section -->
     <div class="container my-5">
       <h2 class="text-center mb-4">About Us</h2>
       <p class="lead text-center">
-        At the heart of Belaku’s philosophy is the idea that architecture should
-        respond to nature, rather than compete with it. The studio’s name,
-        Belaku, means "light" in Kannada, symbolizing the studio’s commitment to
+        At the heart of Belaku's philosophy is the idea that architecture should
+        respond to nature, rather than compete with it. The studio's name,
+        Belaku, means "light" in Kannada, symbolizing the studio's commitment to
         harnessing the power of daylight in all its forms. The team believes
         that the simple act of letting in more natural light and air can
         transform a space—improving mood, increasing productivity, and fostering
         a deeper connection between people and their environment.
       </p>
 
+      <!-- About Images Section -->
+      <div class="row about-images justify-content-center">
+        <div class="col-6 col-md-4">
+          <img src="images/about/Process_Image (1).jpg" alt="Architecture design process" />
+        </div>
+        <div class="col-6 col-md-4">
+          <img src="images/about/Process_Image (2).jpg" alt="Design collaboration" />
+        </div>
+        <div class="col-6 col-md-4">
+          <img src="images/about/Process_Image (3).jpg" alt="Architectural sketches" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Founder Section -->
+    <section class="founder-section">
+      <div class="container">
+        <h2 class="section-title">Meet the Principal Architect</h2>
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="founder-card">
+              <div class="row no-gutters">
+                <div class="col-md-5">
+                  <div class="founder-image-wrapper">
+                    <img src="images/about/neha.jpeg" alt="Architect Neha - Principal Architect at Belaku">
+                  </div>
+                </div>
+                <div class="col-md-7">
+                  <div class="founder-content">
+                    <h3 class="founder-name">Ar. Neha Batny</h3>
+                    <p class="founder-title">Principal Architect & Founder</p>
+                    <div class="founder-bio">
+                      <p>Architect Neha is a design-driven professional with a Master's degree in Architectural Design from the University of Sheffield. She has handled over 20+ projects across Bangalore, Davangere, Chennai, and Mysuru, with a strong focus on premium residential projects and adaptive reuse.</p>
+                      <p>Her work thoughtfully blends contemporary design sensibilities with contextual sensitivity, creating spaces that are refined, functional, and enduring.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <div class="container my-5">
       <div class="text-center">
         <a href="services.html" class="btn btn-custom">Explore Our Services</a>
       </div>
     </div>
 
     <!-- Footer -->
-    <footer class="bg-light text-center py-3">
+    <footer class="bg-light text-center py-3 mt-5">
       &copy; 2024 Belaku. All rights reserved.
     </footer>
 
