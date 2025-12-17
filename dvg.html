@@ -589,14 +589,10 @@
     <script>
         document.querySelectorAll('.gallery-item .img-container').forEach(img => {
             console.log(img.clientWidth, img.clientHeight);
-            // img.addEventListener('load', () => {
-                console.log("Loaded image: ", img);
                 image_tag = img.querySelector('img');
                 if (img.clientHeight > img.clientWidth) {
-                    console.log("Adding portrait class to ", img);
                     img.classList.add('portrait');
                 } else {
-                    console.log("Adding landscape class to ", img);
                     img.classList.add('landscape');
                 }
             // });

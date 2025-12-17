@@ -582,10 +582,8 @@
         document.querySelectorAll('.gallery-item .img-container').forEach(img => {
             image_tag = img.querySelector('img');
             if (image_tag.naturalHeight > image_tag.naturalWidth) {
-                console.log("adding portrait to ", image_tag);
                 img.classList.add('portrait');
             } else {
-                console.log("adding landscape to ", image_tag);
                 img.classList.add('landscape');
             }
         });
