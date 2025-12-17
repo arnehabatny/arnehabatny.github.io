@@ -3,49 +3,40 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>Adya Belaku</title>
+  <title>Our Projects - Adya Belaku</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
   <!-- Google Fonts: DM Sans -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Custom Styles -->
   <style>
     body {
       font-family: "DM Sans", sans-serif;
       color: #96695e;
+      overflow-x: hidden;
     }
 
     a {
       color: #96695e;
+      text-decoration: none;
     }
 
-    .navbar-light .navbar-nav .nav-link {
-      color: #96695e;
-    }
-
-    .navbar-brand {
-      color: #96695e;
+    /* Header styling */
+    header {
+      position: relative;
+      background-color: #96695e;
+      color: #ffffff;
+      z-index: 2;
     }
 
     .navbar {
       background-color: transparent;
       padding-top: 0.1rem;
-      /* Reduced padding */
       padding-bottom: 0.1rem;
-      /* Reduced padding */
       z-index: 2;
     }
 
-    header {
-      position: relative;
-      background-color: #96695e;
-      color: #ffffff;
-      overflow: hidden;
-      z-index: 2;
-    }
-
-    /* Navbar link and brand text color */
     .navbar-dark .navbar-nav .nav-link,
     .navbar-dark .navbar-brand {
       color: #ffffff;
@@ -56,123 +47,203 @@
       color: #ffffff;
     }
 
-    .navbar-light .navbar-nav .nav-link.active,
-    .navbar-light .navbar-nav .show>.nav-link {
-      color: #96695e;
+    /* Hero Section */
+    .projects-hero {
+      background: linear-gradient(135deg, #96695e 0%, #754f48 100%);
+      padding: 80px 0;
+      text-align: center;
+      color: white;
+      margin-bottom: 80px;
     }
 
-    /* Wave Styles */
-    .wave-container {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      overflow: hidden;
-      line-height: 0;
-      z-index: 1;
+    .projects-hero h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: 2px;
     }
 
-    .wave-container svg {
-      display: block;
-      width: 100%;
-      margin-left: 130px;
-      height: 70px;
-      z-index: 1;
+    .projects-hero .subtitle {
+      font-size: 1.3rem;
+      font-weight: 400;
+      opacity: 0.95;
+      max-width: 700px;
+      margin: 0 auto;
     }
 
-    .wave-container svg path {
-      fill: #ffffff;
-      /* White color for the wave */
-    }
-
-    /* Set footer text color */
-    footer {
-      color: #96695e;
-    }
-
-    /* Button Styles */
-    .btn-custom {
-      background-color: #96695e;
-      color: #ffffff;
-      border: none;
-    }
-
-    .btn-custom:hover {
-      background-color: #754f48;
-      /* Slightly darker shade on hover */
-    }
-
-    /* Contact Info Styles */
-    .contact a {
-      color: #96695e;
-      font-size: 1.2rem;
-      text-decoration: none;
-    }
-
-    .contact a:hover {
-      text-decoration: underline;
-    }
-
-
-    .square {
-      position: relative;
-      width: 100%;
-      overflow: hidden;
-    }
-
-    .square:after {
-      content: "";
-      display: block;
-      padding-bottom: 100%;
-      /* 1:1 aspect ratio */
-    }
-
-    .square img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    /* Projects Grid */
+    .projects-section {
+      padding-bottom: 60px;
     }
 
     .project-card {
-      transition: transform 0.3s;
+      position: relative;
       border: none;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      height: 100%;
+      background: white;
     }
 
     .project-card:hover {
-      transform: scale(1.05);
+      transform: translateY(-10px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .project-image-wrapper {
+      position: relative;
+      overflow: hidden;
+      height: 280px;
     }
 
     .project-card img {
-      height: 200px;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .project-card:hover img {
+      transform: scale(1.1);
+    }
+
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-card:hover .project-overlay {
+      opacity: 1;
     }
 
     .project-card .card-body {
-      background-color: #f8f9fa;
+      background-color: white;
+      padding: 25px;
+      position: relative;
     }
 
     .project-card .card-title {
       color: #96695e;
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0;
+      transition: color 0.3s ease;
     }
 
-    .project-card .card-text {
+    .project-card:hover .card-title {
+      color: #754f48;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      background: #f8f9fa;
+      padding: 60px 0;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .contact-section h3 {
+      font-size: 2rem;
+      font-weight: 700;
       color: #96695e;
-      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+
+    .contact-section p {
+      font-size: 1.1rem;
+      color: #5a5a5a;
+      margin-bottom: 30px;
+    }
+
+    .contact-section a {
+      color: #96695e;
+      font-size: 1.3rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 2px solid #96695e;
+      padding-bottom: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .contact-section a:hover {
+      color: #754f48;
+      border-bottom-color: #754f48;
+    }
+
+    /* Footer Styles */
+    footer {
+      color: #96695e;
+      padding: 30px 0;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 767px) {
+      .projects-hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .projects-hero .subtitle {
+        font-size: 1.1rem;
+      }
+
+      .projects-hero {
+        padding: 60px 20px;
+        margin-bottom: 60px;
+      }
+
+      .project-image-wrapper {
+        height: 220px;
+      }
+
+      .project-card .card-title {
+        font-size: 1.2rem;
+      }
+
+      .project-card .card-body {
+        padding: 20px;
+      }
+
+      .contact-section h3 {
+        font-size: 1.6rem;
+      }
+
+      .contact-section p {
+        font-size: 1rem;
+      }
+
+      .contact-section a {
+        font-size: 1.1rem;
+      }
+    }
+
+    /* Responsive grid adjustments */
+    @media (min-width: 768px) and (max-width: 991px) {
+      .project-image-wrapper {
+        height: 240px;
+      }
+    }
+
+    @media (min-width: 992px) {
+      .col-lg-6-custom {
+        flex: 0 0 50%;
+        max-width: 50%;
+      }
     }
   </style>
 </head>
 
 <body>
   <header>
-
     <nav class="navbar navbar-expand-lg navbar-dark">
-      <a class="navbar-brand" href="#">
-        <!-- Logo -->
+      <a class="navbar-brand" href="index.html">
         <img src="images/belaku_white_bg.png" alt="Logo" width="170" height="60" style="z-index: 100" />
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -181,129 +252,173 @@
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="index.html">Home<span class="sr-only"></span></a>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
           </li>
-           <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" href="about.html">About</a>
           </li>
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" href="services.html">Services</a>
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="project.html">Projects</a>
           </li>
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" href="gallery.html">Progress</a>
           </li>
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" href="testimonials.html">Testimonials</a>
           </li>
         </ul>
       </div>
     </nav>
-
   </header>
 
+  <!-- Hero Section -->
+  <div class="projects-hero">
+    <h1>Our Projects</h1>
+    <p class="subtitle">Explore our portfolio of thoughtfully designed residential spaces across India</p>
+  </div>
 
-  <div class="container my-5">
-    <h2 class="text-center mb-4">Belaku Projects</h2>
-    <div class="row">
-      <div class="col-md-4 mb-4">
-        <div class="card project-card">
+  <!-- Projects Section -->
+  <div class="projects-section">
+    <div class="container">
+      <div class="row">
+        <!-- Project 1 -->
+        <div class="col-md-6 col-lg-4 mb-4">
           <a href="mysore_farmhouse.html">
-            <img src="images/sitout.webp" class="card-img-top" alt="Project 1" />
-          </a>
-          <div class="card-body">
-            <h5 class="card-title">Mysore Farmhouse</h5>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 mb-4">
-        <div class="card project-card">
-          <a href="sv_residence.html">
-            <img src="images/reference.webp" class="card-img-top" alt="Project 2" />
-          </a>
-          <div class="card-body">
-            <h5 class="card-title">Seeguvani Residence</h5>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 mb-4">
-        <div class="card project-card">
-          <a href="rajajinagar_flat.html">
-            <img src="images/living_room.webp" class="card-img-top" alt="Project 3" />
-          </a>
-          <div class="card-body">
-            <h5 class="card-title">Rajajinagar Flat</h5>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4 mb-4">
-          <div class="card project-card">
-            <a href="lake_terrace.html">
-              <img src="images/lake_terrace/lake_terrace3.webp" class="card-img-top" alt="Project 4" />
-            </a>
-            <div class="card-body">
-              <h5 class="card-title">Lake Terrace</h5>
+            <div class="card project-card">
+              <div class="project-image-wrapper">
+                <img src="images/mysore_farmhouse/mys_farmhouse1.webp" class="card-img-top" alt="Mysore Farmhouse" />
+                <div class="project-overlay"></div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Mysore Farmhouse</h5>
+              </div>
             </div>
-          </div>
+          </a>
         </div>
-        <div class="col-md-4 mb-4">
-          <div class="card project-card">
-            <a href="kora_villa.html">
-              <img src="images/dining.webp" class="card-img-top" alt="Project 5" />
-            </a>
-            <div class="card-body">
-              <h5 class="card-title">Koramangala Villa</h5>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="card project-card">
-            <a href="rr_traditional.html">
-              <img src="images/rr_traditional/rr_house1.webp" class="card-img-top" alt="Project 6" />
-            </a>
-            <div class="card-body">
-              <h5 class="card-title">RR Traditional</h5>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="row">
-        <div class="col-md-6 mb-4">
-          <div class="card project-card">
-            <a href="jaipur_villa.html">
-              <img src="images/jaipur_villa/jaipur_villa1.webp" class="card-img-top" alt="Project 7" />
-            </a>
-            <div class="card-body">
-              <h5 class="card-title">Jaipur Villa</h5>
+        <!-- Project 2 -->
+        <div class="col-md-6 col-lg-4 mb-4">
+          <a href="sv_residence.html">
+            <div class="card project-card">
+              <div class="project-image-wrapper">
+                <img src="images/sv_residence/sv_mane2.webp" class="card-img-top" alt="Seeguvani Residence" />
+                <div class="project-overlay"></div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Seeguvani Residence</h5>
+              </div>
             </div>
-          </div>
+          </a>
         </div>
-        <div class="col-md-6 mb-4">
-          <div class="card project-card">
-            <a href="dvg.html">
-              <img src="images/dvg_project/DavangereHouse1.webp" class="card-img-top" alt="Project 8" />
-            </a>
-            <div class="card-body">
-              <h5 class="card-title">Davanagere Villa Restoration</h5>
+
+        <!-- Project 3 -->
+        <div class="col-md-6 col-lg-4 mb-4">
+          <a href="rajajinagar_flat.html">
+            <div class="card project-card">
+              <div class="project-image-wrapper">
+                <img src="images/rajajinagar_flat/r_flat3.webp" class="card-img-top" alt="Rajajinagar Flat" />
+                <div class="project-overlay"></div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Rajajinagar Flat</h5>
+              </div>
             </div>
-          </div>
+          </a>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="col-md-6 col-lg-4 mb-4">
+          <a href="lake_terrace.html">
+            <div class="card project-card">
+              <div class="project-image-wrapper">
+                <img src="images/lake_terrace/lake_terrace1.webp" class="card-img-top" alt="Lake Terrace" />
+                <div class="project-overlay"></div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Lake Terrace</h5>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="col-md-6 col-lg-4 mb-4">
+          <a href="kora_villa.html">
+            <div class="card project-card">
+              <div class="project-image-wrapper">
+                <img src="images/koramangala_villa/kora_villa3.webp" class="card-img-top" alt="Koramangala Villa" />
+                <div class="project-overlay"></div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Koramangala Villa</h5>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="col-md-6 col-lg-4 mb-4">
+          <a href="rr_traditional.html">
+            <div class="card project-card">
+              <div class="project-image-wrapper">
+                <img src="images/rr_traditional/rr_house1.webp" class="card-img-top" alt="RR Traditional" />
+                <div class="project-overlay"></div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">RR Traditional</h5>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Project 7 -->
+        <div class="col-md-6 mb-4">
+          <a href="jaipur_villa.html">
+            <div class="card project-card">
+              <div class="project-image-wrapper">
+                <img src="images/jaipur_villa/jaipur_villa4.webp" class="card-img-top" alt="Jaipur Villa" />
+                <div class="project-overlay"></div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Jaipur Villa</h5>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Project 8 -->
+        <div class="col-md-6 mb-4">
+          <a href="dvg.html">
+            <div class="card project-card">
+              <div class="project-image-wrapper">
+                <img src="images/dvg_project/DavangereHouse1.webp" class="card-img-top" alt="Davangere Villa Restoration" />
+                <div class="project-overlay"></div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Davangere Villa Restoration</h5>
+              </div>
+            </div>
+          </a>
         </div>
       </div>
     </div>
+  </div>
 
-    <p class="text-center mt-4 contact">
-      Interested in working with us? Reach out via email:
+  <!-- Contact Section -->
+  <div class="contact-section">
+    <div class="container">
+      <h3>Let's Create Something Beautiful Together</h3>
+      <p>Interested in working with us? We'd love to hear about your project</p>
       <a href="mailto:neha@belakuarchitects.com">neha@belakuarchitects.com</a>
-    </p>
+    </div>
   </div>
 
   <!-- Footer -->
-  <footer class="bg-light text-center py-3">
+  <footer class="bg-light text-center">
     &copy; 2024 Belaku. All rights reserved.
   </footer>
 
