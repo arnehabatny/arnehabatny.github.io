@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mysore Mane - Adya Belaku</title>
+    <!-- Bootstrap CSS -->
+    <link
+        rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <!-- Google Fonts: DM Sans -->
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
+    />
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: "DM Sans", sans-serif;
+            color: #96695e;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: #96695e;
+        }
+
+        /* Header styling */
+        header {
+            position: relative;
+            background-color: #96695e;
+            color: #ffffff;
+            z-index: 2;
+        }
+
+        .navbar {
+            background-color: transparent;
+            padding-top: 0.1rem;
+            padding-bottom: 0.1rem;
+            z-index: 2;
+        }
+
+        .navbar-dark .navbar-nav .nav-link,
+        .navbar-dark .navbar-brand {
+            color: #ffffff;
+        }
+
+        .navbar-dark .navbar-nav .nav-link.active,
+        .navbar-dark .navbar-nav .show > .nav-link {
+            color: #ffffff;
+        }
+
+        /* Hero Section */
+        .project-hero {
+            position: relative;
+            height: 48vh;
+            min-height: 400px;
+            background-image: url('images/mysore_mane/mysore_mane1.webp');
+            background-position: center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 60px;
+        }
+
+        .project-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .project-hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 20px;
+        }
+
+        .project-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .project-hero .subtitle {
+            font-size: 1.3rem;
+            font-weight: 400;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Project Info Section */
+        .project-info {
+            background-color: #f8f9fa;
+            padding: 60px 0;
+            margin-bottom: 60px;
+        }
+
+        .project-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #5a5a5a;
+            margin-bottom: 40px;
+        }
+
+        .project-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .detail-item {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .detail-item .label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #96695e;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .detail-item .value {
+            font-size: 1.2rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #96695e;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            text-align: center;
+            margin-bottom: 50px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Masonry-style Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 150px;
+            gap: 12px;
+            margin-bottom: 60px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: visible;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+            cursor: pointer;
+            background-color: #f8f9fa;
+        }
+
+        /* Varying heights for masonry effect */
+        .gallery-item.height-3 {
+            grid-row: span 3;
+        }
+
+        .gallery-item.height-4 {
+            grid-row: span 4;
+        }
+
+        .gallery-item.height-5 {
+            grid-row: span 5;
+        }
+
+        .gallery-item .img-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 8px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .gallery-item:hover {
+            z-index: 1000;
+        }
+
+        .gallery-item:hover .img-container {
+            transition: transform 0.4s ease;
+        }
+
+        /* Landscape images */
+        .gallery-item .img-container.landscape:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.9);
+            z-index: 1001;
+            transform: scale(1.3, 1.3);
+        }
+
+        /* Portrait images */
+        .gallery-item .img-container.portrait:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.9);
+            z-index: 1001;
+            transform: scale(1.2, 1.2);
+        }
+
+        .gallery-item:hover img {
+            object-fit: cover;
+        }
+
+        /* Hover trigger area to maintain hover state */
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #96695e 0%, #754f48 100%);
+            padding: 80px 0;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section h3 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        /* Button Styles */
+        .btn-custom {
+            background-color: #96695e;
+            color: #ffffff;
+            border: none;
+            padding: 14px 40px;
+            font-size: 1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-custom:hover {
+            background-color: #754f48;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-outline-light {
+            border: 2px solid white;
+            color: white;
+            padding: 14px 40px;
+            font-size: 1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-outline-light:hover {
+            background-color: white;
+            color: #96695e;
+            transform: translateY(-2px);
+        }
+
+        /* Footer Styles */
+        footer {
+            color: #96695e;
+            padding: 30px 0;
+        }
+
+        /* Overlay for hover effect */
+        .gallery-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0);
+            opacity: 0;
+            z-index: 999;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+        }
+
+        .gallery-item:hover ~ .gallery-overlay {
+            opacity: 1;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 767px) {
+            .project-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .project-hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .project-hero {
+                height: 50vh;
+                min-height: 350px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                grid-auto-rows: 250px;
+                gap: 12px;
+            }
+
+            .project-details {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .cta-section h3 {
+                font-size: 1.8rem;
+            }
+
+            .cta-section p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="index.html">
+                <img
+                    src="images/belaku_white_bg.png"
+                    alt="Logo"
+                    width="170"
+                    height="60"
+                    style="z-index: 100"
+                />
+            </a>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div
+                class="collapse navbar-collapse justify-content-end"
+                id="navbarNav"
+            >
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="project.html">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Progress</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="testimonials.html">Testimonials</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="project-hero">
+        <div class="project-hero-content">
+            <h1>Mysore Mane</h1>
+            <p class="subtitle">A refined Mysore triplex residence that embodies contemporary urban luxury through premium materials, elegant lighting, and meticulous detailing.</p>
+        </div>
+    </div>
+
+    <!-- Project Info Section -->
+    <div class="project-info">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="section-title">About This Project</h2>
+                    <div class="project-description">
+                        <p>This minimalist home in Mysore is designed with a calm, rooted sensibility that blends modern living with regional warmth. The use of natural Kota stone flooring brings a cool, timeless base to the interiors, while handcrafted wood elements add depth, texture, and warmth. Clean lines, uncluttered spaces, and a muted material palette allow light and ventilation to shape the experience of the home. </p>
+                        <p>Thoughtfully detailed wooden doors, ceilings, and furniture soften the minimal language, creating a serene residence that feels both contemporary and deeply connected to its context.</p>
+                    </div>
+
+                    <div class="project-details">
+                        <div class="detail-item">
+                            <div class="label">Location</div>
+                            <div class="value">Mysore, Karnataka</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="label">Year</div>
+                            <div class="value">2022</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="label">Area</div>
+                            <div class="value">2,300 sq ft</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery Section -->
+    <div class="gallery-section">
+        <div class="container">
+            <h2 class="section-title">Project Gallery</h2>
+            <p class="section-subtitle">Explore refined urban luxury through imagery highlighting premium materials, elegant lighting, and meticulous craftsmanship.</p>
+            
+            <div class="gallery-grid">
+                <!-- Column 1 -->
+                <div class="gallery-item height-4">
+                    <div class="img-container">
+                        <img src="images/mysore_mane/mysore_mane1.webp" alt="Luxurious living space">
+                    </div>
+                </div>
+
+                <!-- Column 2 -->
+                <div class="gallery-item height-5">
+                    <div class="img-container">
+                        <img src="images/mysore_mane/mysore_mane2.webp" alt="Elegant staircase detail">
+                    </div>
+                </div>
+
+                <!-- Column 3 -->
+                <div class="gallery-item height-3">
+                    <div class="img-container">
+                        <img src="images/mysore_mane/mysore_mane3.webp" alt="Modern bedroom design">
+                    </div>
+                </div>
+
+                <!-- Column 1 continues -->
+                <div class="gallery-item height-5">
+                    <div class="img-container">
+                        <img src="images/mysore_mane/mysore_mane4.webp" alt="Premium material showcase">
+                    </div>
+                </div>
+
+                <!-- Column 2 continues -->
+                <div class="gallery-item height-4">
+                    <div class="img-container">
+                        <img src="images/mysore_mane/mysore_mane5.webp" alt="Ambient lighting features">
+                    </div>
+                </div>
+
+                <!-- Column 3 continues -->
+                <div class="gallery-item height-5">
+                    <div class="img-container">
+                        <img src="images/mysore_mane/mysore_mane6.webp" alt="Refined interior spaces">
+                    </div>
+                </div>
+
+                <!-- Column 1 -->
+                <div class="gallery-item height-3">
+                    <div class="img-container">
+                        <img src="images/mysore_mane/mysore_mane7.webp" alt="Contemporary kitchen">
+                    </div>
+                </div>
+
+                <!-- Column 2 -->
+                <div class="gallery-item height-4">
+                    <div class="img-container">
+                        <img src="images/mysore_mane/mysore_mane8.webp" alt="Architectural details">
+                    </div>
+                </div>
+
+                <!-- Column 3 -->
+                <div class="gallery-item height-4">
+                    <div class="img-container">
+                        <img src="images/mysore_mane/mysore_mane9.webp" alt="Luxury bathroom">
+                    </div>
+                </div>
+
+                <!-- Final image spanning full width feel -->
+                <div class="gallery-item height-5">
+                    <div class="img-container">
+                        <img src="images/mysore_mane/mysore_mane10.webp" alt="Complete interior view">
+                    </div>
+                </div>
+
+                <!-- Column 1 -->
+                <div class="gallery-item height-3">
+                    <div class="img-container">
+                        <img src="images/mysore_mane/mysore_mane11.webp" alt="Contemporary kitchen">
+                    </div>
+                </div>
+
+                <!-- Column 2 -->
+                <div class="gallery-item height-4">
+                    <div class="img-container">
+                        <img src="images/mysore_mane/mysore_mane12.webp" alt="Architectural details">
+                    </div>
+                </div>
+
+                <!-- Column 3 -->
+                <div class="gallery-item height-4">
+                    <div class="img-container">
+                        <img src="images/mysore_mane/mysore_mane13.webp" alt="Luxury bathroom">
+                    </div>
+                </div>
+
+                <!-- Final image spanning full width feel -->
+                <div class="gallery-item height-5">
+                    <div class="img-container">
+                        <img src="images/mysore_mane/mysore_mane14.webp" alt="Complete interior view">
+                    </div>
+                </div>
+
+                <div class="gallery-overlay"></div>
+            </div>
+
+            <div class="text-center mt-4">
+                <a href="project.html" class="btn btn-custom">← Back to Projects</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="cta-section">
+        <div class="container">
+            <h3>Ready to Transform Your Space?</h3>
+            <p>Let's create something beautiful together</p>
+            <a href="mailto:neha@belakuarchitects.com" class="btn btn-outline-light">Get in Touch</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center">
+        &copy; 2024 Belaku. All rights reserved.
+    </footer>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.querySelectorAll('.gallery-item .img-container').forEach(img => {
+            image_tag = img.querySelector('img');
+            if (image_tag.naturalHeight > image_tag.naturalWidth) {
+                img.classList.add('portrait');
+            } else {
+                img.classList.add('landscape');
+            }
+        });
+    </script>
+</body>
+</html>
